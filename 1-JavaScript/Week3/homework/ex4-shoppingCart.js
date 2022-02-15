@@ -26,11 +26,10 @@ const shoppingCart = ['bananas', 'milk'];
 function addToShoppingCart(groceryItem) {
   let resultStr = 'You bought ';
 
-  groceryItem === undefined ? 1 : shoppingCart.push(groceryItem);
+  if (groceryItem) shoppingCart.push(groceryItem);
   if (shoppingCart.length > 3) shoppingCart.shift();
 
-  resultStr += shoppingCart.join(', ');
-  resultStr += '!';
+  resultStr += `${shoppingCart.join(', ')}!`;
 
   return resultStr;
 }
@@ -42,6 +41,7 @@ function test1() {
   );
   const expected = 'You bought bananas, milk!';
   const actual = addToShoppingCart();
+  console.log(shoppingCart);
   console.assert(actual === expected);
 }
 

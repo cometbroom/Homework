@@ -17,10 +17,12 @@ it pure. Do the following:
 ------------------------------------------------------------------------------*/
 // ! Function under test
 function addToShoppingCart(cart, item) {
-  const arr = [...cart, item];
-  if (cart.length > 2) arr.shift();
+  const arr = item ? [...cart, item] : [...cart];
+  if (arr.length > 3) arr.shift();
   return arr;
 }
+
+console.log(addToShoppingCart(['bananas', 'milk', 'chocolate']));
 
 // ! Test functions (plain vanilla JavaScript)
 function test1() {
