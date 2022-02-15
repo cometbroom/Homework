@@ -41,7 +41,6 @@ function test1() {
   );
   const expected = 'You bought bananas, milk!';
   const actual = addToShoppingCart();
-  console.log(shoppingCart);
   console.assert(actual === expected);
 }
 
