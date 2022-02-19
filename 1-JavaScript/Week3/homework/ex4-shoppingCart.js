@@ -24,14 +24,10 @@ const shoppingCart = ['bananas', 'milk'];
 
 // ! Function to be tested
 function addToShoppingCart(groceryItem) {
-  let resultStr = 'You bought ';
-
   if (groceryItem) shoppingCart.push(groceryItem);
   if (shoppingCart.length > 3) shoppingCart.shift();
 
-  resultStr += `${shoppingCart.join(', ')}!`;
-
-  return resultStr;
+  return `You bought ${shoppingCart.join(', ')}!`;
 }
 
 // ! Test functions (plain vanilla JavaScript)
