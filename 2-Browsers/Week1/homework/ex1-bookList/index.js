@@ -17,8 +17,34 @@ https: //hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 -----------------------------------------------------------------------------*/
 //cspell: enable
 
+//const { isLength } = require('lodash');
+
+function createBookElement(title, author, url) {
+  const bookElement = document.createElement('li');
+  const titleAndAuthor = document.createElement('p');
+  const image = document.createElement('img');
+
+  titleAndAuthor.textContent = `${title} - ${author}`;
+  image.src = url;
+  bookElement.appendChild(titleAndAuthor);
+  bookElement.appendChild(image);
+  return bookElement;
+}
+
 function createBookList(books) {
-  // TODO your code goes in here, return the ul element
+  const ul = document.createElement('ul');
+
+  books.forEach((book) => {
+    const bookElement = createBookElement(
+      book.title,
+      book.author,
+      `https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`
+    );
+    if (book.alreadyRead) bookElement.style.backgroundColor = 'red';
+    else bookElement.style.backgroundColor = 'green';
+    ul.appendChild(bookElement);
+  });
+  return ul;
 }
 
 function main() {
@@ -32,7 +58,7 @@ function main() {
     {
       title: 'The Most Human Human',
       author: 'Brian Christian',
-      isbn: '978-1617933431',
+      isbn: '978-0307476708',
       alreadyRead: true,
     },
     {
