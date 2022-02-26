@@ -21,8 +21,40 @@ Full description at: https://github.com/HackYourFuture/Homework/tree/main/2-Brow
 
    https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif
 -----------------------------------------------------------------------------*/
+const catGif = document.querySelector('img');
+const rightMaxPx = window.innerWidth - catGif.width;
+//Get middle of screen
+const midPxNum = window.innerWidth / 2 - catGif.width / 2;
+//Round to nearest 10
+const middlePx = Math.floor(midPxNum / 10) * 10;
+//Variable that dictates whether the cat moves
+let moveCat = true;
+
+catGif.style.left = '0px';
+
 function catWalk() {
-  // TODO complete this function
+  const addNumber = moveCat ? 10 : 0;
+  let leftNumber = parseInt(catGif.style.left) + addNumber;
+
+  //At maximum distance reset.
+  if (leftNumber > rightMaxPx) leftNumber = 0;
+  if (leftNumber === middlePx) {
+    //To prevent the code in this if statement from executing over and over.
+    leftNumber += 10;
+    catGif.src = `https://media1.tenor.com/images/2de63e950fb254920054f9bd081e8157/tenor.gif`;
+
+    //Set cat mover to false and have the promise set it to true after 5 seconds.
+    moveCat = false;
+    setTimeout(() => {
+      catGif.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
+      moveCat = true;
+    }, 5000);
+  }
+  catGif.style.left = `${leftNumber}px`;
 }
 
-// TODO execute `catWalk` when the browser has completed loading the page
+document.addEventListener('DOMContentLoaded', () => {
+  setInterval(() => {
+    catWalk();
+  }, 50);
+});
