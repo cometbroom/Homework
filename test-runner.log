@@ -218,3 +218,143 @@ Ran all test suites matching /ex3-rollDie.test.js/i.
 2022-03-18 04:23:55 info: --------------------------------------------
 2022-03-18 04:23:58 info: All unit tests passed.
 2022-03-18 04:24:01 info: All steps were completed successfully
+2022-03-18 04:33:15 info: ----------------------------------------------
+2022-03-18 04:33:15 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 04:33:15 info: ----------------------------------------------
+2022-03-18 04:33:18 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex5-pokerDiceChain.test.js --colors
+ FAIL  3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js
+  ex5-pokerDiceChain
+    √ should exist and be executable (1 ms)
+    √ should have all TODO comments removed
+    √ `rollDice` should not contain unneeded console.log calls (1 ms)
+    × should resolve when all dice settle successfully (145 ms)
+    × should reject with an Error when a die rolls off the table (85 ms)
+
+  ● ex5-pokerDiceChain › should resolve when all dice settle successfully
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      32 |     expect(promise).toBeInstanceOf(Promise);
+      33 |     const result = await promise;
+    > 34 |     expect(Array.isArray(result)).toBe(true);
+         |                                   ^
+      35 |     expect(result).toHaveLength(5);
+      36 |
+      37 |     promise.finally(() => {
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js:34:35)
+
+  ● ex5-pokerDiceChain › should resolve when all dice settle successfully
+
+    expect.assertions(4)
+
+    Expected four assertions to be called but received three assertion calls.
+
+      24 |
+      25 |   test('should resolve when all dice settle successfully', async () => {
+    > 26 |     expect.assertions(4);
+         |            ^
+      27 |     expect(exported).toBeDefined();
+      28 |
+      29 |     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js:26:12)
+
+  ● ex5-pokerDiceChain › should reject with an Error when a die rolls off the table
+
+    expect.assertions(3)
+
+    Expected three assertions to be called but received two assertion calls.
+
+      41 |
+      42 |   test('should reject with an Error when a die rolls off the table', async () => {
+    > 43 |     expect.assertions(3);
+         |            ^
+      44 |     expect(exported).toBeDefined();
+      45 |
+      46 |     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0.999);
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js:43:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 3 passed, 5 total
+Snapshots:   0 total
+Time:        0.776 s
+Ran all test suites matching /ex5-pokerDiceChain.test.js/i.
+2022-03-18 06:49:40 info: ----------------------------------------------
+2022-03-18 06:49:40 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 06:49:40 info: ----------------------------------------------
+2022-03-18 06:49:42 error: *** Unit Test Error Report ***
+
+Command failed: npx jest ex5-pokerDiceChain.test.js --colors
+ FAIL  3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js
+  ex5-pokerDiceChain
+    √ should exist and be executable (1 ms)
+    √ should have all TODO comments removed
+    √ `rollDice` should not contain unneeded console.log calls (1 ms)
+    × should resolve when all dice settle successfully (147 ms)
+    √ should reject with an Error when a die rolls off the table (83 ms)
+
+  ● ex5-pokerDiceChain › should resolve when all dice settle successfully
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      32 |     expect(promise).toBeInstanceOf(Promise);
+      33 |     const result = await promise;
+    > 34 |     expect(Array.isArray(result)).toBe(true);
+         |                                   ^
+      35 |     expect(result).toHaveLength(5);
+      36 |
+      37 |     promise.finally(() => {
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js:34:35)
+
+  ● ex5-pokerDiceChain › should resolve when all dice settle successfully
+
+    expect.assertions(4)
+
+    Expected four assertions to be called but received three assertion calls.
+
+      24 |
+      25 |   test('should resolve when all dice settle successfully', async () => {
+    > 26 |     expect.assertions(4);
+         |            ^
+      27 |     expect(exported).toBeDefined();
+      28 |
+      29 |     const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
+
+      at Object.<anonymous> (3-UsingAPIs/Week1/unit-tests/ex5-pokerDiceChain.test.js:26:12)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 4 passed, 5 total
+Snapshots:   0 total
+Time:        0.765 s, estimated 1 s
+Ran all test suites matching /ex5-pokerDiceChain.test.js/i.
+2022-03-18 06:52:13 info: ----------------------------------------------
+2022-03-18 06:52:13 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 06:52:13 info: ----------------------------------------------
+2022-03-18 06:52:16 info: All unit tests passed.
+2022-03-18 06:52:19 info: All steps were completed successfully
+2022-03-18 06:54:33 info: ----------------------------------------------
+2022-03-18 06:54:33 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 06:54:33 info: ----------------------------------------------
+2022-03-18 06:54:36 info: All unit tests passed.
+2022-03-18 06:54:39 info: All steps were completed successfully
+2022-03-18 06:57:42 info: ----------------------------------------------
+2022-03-18 06:57:42 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 06:57:42 info: ----------------------------------------------
+2022-03-18 06:57:44 info: All unit tests passed.
+2022-03-18 06:57:48 info: All steps were completed successfully
+2022-03-18 07:01:23 info: ----------------------------------------------
+2022-03-18 07:01:23 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-18 07:01:23 info: ----------------------------------------------
+2022-03-18 07:01:26 info: All unit tests passed.
+2022-03-18 07:01:29 info: All steps were completed successfully
