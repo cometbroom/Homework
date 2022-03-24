@@ -15,15 +15,22 @@ const rollDie = require('../../helpers/pokerDiceRoller');
 
 function rollDice() {
   const dice = [1, 2, 3, 4, 5];
-  // TODO complete this function; use Promise.race() and rollDie()
+  const promArr = dice.map((x) => rollDie(x));
+  return Promise.race(promArr);
 }
 
-// Refactor this function to use async/await and try/catch
-function main() {
-  rollDice()
-    .then((results) => console.log('Resolved!', results))
-    .catch((error) => console.log('Rejected!', error.message));
+async function main() {
+  try {
+    const results = await rollDice();
+    console.log('Resolved!', results);
+  } catch (error) {
+    console.log('Rejected!', error.message);
+  }
 }
+
+//Dice keep getting rolled because the rollDie() method logs values before it fulfills
+//and Promise.race() only gives you the value of the fulfilled promise but it doesn't
+//remove your promises from the event loop.
 
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {

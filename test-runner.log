@@ -130,3 +130,16 @@ Ran all test suites matching /ex2-pokemonApp.test.js/i.
 2022-03-24 01:29:57 info: -----------------------------------------
 2022-03-24 01:30:00 info: All unit tests passed.
 2022-03-24 01:30:04 info: All steps were completed successfully
+2022-03-24 01:48:08 info: ----------------------------------------
+2022-03-24 01:48:08 info: >>> Running Unit Test `ex4-diceRace` <<<
+2022-03-24 01:48:08 info: ----------------------------------------
+2022-03-24 01:48:11 info: All unit tests passed.
+2022-03-24 01:48:14 error: *** Spell Checker Report ***
+
+ex4-diceRace.js:32:54 - Unknown word (fullfilled)
+
+2022-03-24 01:48:28 info: ----------------------------------------
+2022-03-24 01:48:28 info: >>> Running Unit Test `ex4-diceRace` <<<
+2022-03-24 01:48:28 info: ----------------------------------------
+2022-03-24 01:48:31 info: All unit tests passed.
+2022-03-24 01:48:34 info: All steps were completed successfully
