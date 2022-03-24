@@ -1,1 +1,25 @@
 /* add your styling here */
+
+body {
+  background-color: black;
+}
+
+#user-interface {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  margin: auto;
+  background: radial-gradient(rgb(214, 214, 214), rgba(18, 18, 211, 0.856));
+  box-shadow: 5px 5px 20px 1px rgba(18, 18, 211, 0.856),
+    -5px -5px 20px 1px rgba(18, 18, 211, 0.856);
+
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#user-interface {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  margin: auto;
+}
