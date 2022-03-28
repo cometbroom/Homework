@@ -15,9 +15,11 @@ Complete the function called `checkDoubleDigits` such that:
 ------------------------------------------------------------------------------*/
 function checkDoubleDigits(x) {
   return new Promise((resolve, reject) => {
-    const resolveMsg = `This is a double digit number!`;
-    const rejectObj = new Error(`Expected a double digit number but got ${x}`);
-    x / 10 < 10 && x >= 10 ? resolve(resolveMsg) : reject(rejectObj);
+    if (x < 100 && x >= 10) {
+      resolve(`This is a double digit number!`);
+    } else {
+      reject(new Error(`Expected a double digit number but got ${x}`));
+    }
   });
 }
 
@@ -39,6 +41,7 @@ function main() {
     .catch((error) => console.log(error.message));
 }
 
+// ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {
   main();
 }

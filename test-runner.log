@@ -358,3 +358,23 @@ Ran all test suites matching /ex5-pokerDiceChain.test.js/i.
 2022-03-18 07:01:23 info: ----------------------------------------------
 2022-03-18 07:01:26 info: All unit tests passed.
 2022-03-18 07:01:29 info: All steps were completed successfully
+2022-03-28 03:17:07 info: ----------------------------------------------
+2022-03-28 03:17:07 info: >>> Running Unit Test `ex5-pokerDiceChain` <<<
+2022-03-28 03:17:07 info: ----------------------------------------------
+2022-03-28 03:17:11 info: All unit tests passed.
+2022-03-28 03:17:14 info: All steps were completed successfully
+2022-03-28 03:52:13 info: ---------------------------------------
+2022-03-28 03:52:13 info: >>> Running Unit Test `ex3-rollDie` <<<
+2022-03-28 03:52:13 info: ---------------------------------------
+2022-03-28 03:52:15 info: All unit tests passed.
+2022-03-28 03:52:19 info: All steps were completed successfully
+2022-03-28 03:58:13 info: -------------------------------------------------
+2022-03-28 03:58:13 info: >>> Running Unit Test `ex2-checkDoubleDigits` <<<
+2022-03-28 03:58:13 info: -------------------------------------------------
+2022-03-28 03:58:15 info: All unit tests passed.
+2022-03-28 03:58:18 info: All steps were completed successfully
+2022-03-28 04:03:02 info: ---------------------------------------
+2022-03-28 04:03:02 info: >>> Running Unit Test `ex1-johnWho` <<<
+2022-03-28 04:03:02 info: ---------------------------------------
+2022-03-28 04:03:04 info: All unit tests passed.
+2022-03-28 04:03:08 info: All steps were completed successfully

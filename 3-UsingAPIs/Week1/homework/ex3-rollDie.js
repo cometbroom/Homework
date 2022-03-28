@@ -25,7 +25,6 @@ function rollDie() {
       // Use callback to notify that the die rolled off the table after 6 rolls
       if (roll > 6) {
         reject(new Error('Oops... Die rolled off the table.'));
-        return;
       }
 
       // Use callback to communicate the final die value once finished rolling
@@ -53,6 +52,10 @@ function main() {
       console.log(error.message);
     });
 }
+
+//With Promises we took advantage of their fulfilled state to avoid getting multiple resolves/rejects
+//So after our promise is rejected at if (roll > 6) it is fulfilled and will ignore resolve afterwards.
+//With the callback version we have no such mechanism so success would be called again.
 
 // ! Do not change or remove the code below
 if (process.env.NODE_ENV !== 'test') {

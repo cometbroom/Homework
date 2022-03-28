@@ -17,13 +17,15 @@ const rollDie = require('../../helpers/pokerDiceRoller');
 function rollDice() {
   const results = [];
 
-  const promiseHandler = (x) => {
-    return (value) => {
-      results.push(value);
-      return rollDie(x);
-    };
+  //A handler to return function which would be called by .then and gets chained
+  const promiseHandler = (x) => (value) => {
+    //Value would be resolve value.
+    results.push(value);
+    return rollDie(x);
   };
 
+  //Chain all the promises that add values to results array
+  //The chain continues inside main for final processing
   return rollDie(1)
     .then(promiseHandler(2))
     .then(promiseHandler(3))
@@ -31,6 +33,7 @@ function rollDice() {
     .then(promiseHandler(5))
     .then((value) => {
       results.push(value);
+      //Return our built results
       return results;
     });
 }
