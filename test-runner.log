@@ -143,3 +143,8 @@ ex4-diceRace.js:32:54 - Unknown word (fullfilled)
 2022-03-24 01:48:28 info: ----------------------------------------
 2022-03-24 01:48:31 info: All unit tests passed.
 2022-03-24 01:48:34 info: All steps were completed successfully
+2022-03-29 02:29:49 info: ----------------------------------------
+2022-03-29 02:29:49 info: >>> Running Unit Test `ex5-vscDebug` <<<
+2022-03-29 02:29:49 info: ----------------------------------------
+2022-03-29 02:29:49 warn: A unit test file was not provided.
+2022-03-29 02:29:53 info: All steps were completed successfully
