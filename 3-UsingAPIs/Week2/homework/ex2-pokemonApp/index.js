@@ -23,7 +23,7 @@ Try and avoid using global variables. As much as possible, try and use function
 parameters and return values to pass data back and forth.
 ------------------------------------------------------------------------------*/
 const USER_INTERFACE_ID = 'user-interface';
-const IMG_API_ID = 'image-api';
+const DOM_IMG_ID = 'image-api';
 const UI_MESSAGE_ID = 'ui-message';
 const API_URL = 'https://pokeapi.co/api/v2/pokemon/';
 const SELECT_ELEMENT_ID = 'select-pokes';
@@ -31,18 +31,23 @@ const SELECT_ELEMENT_ID = 'select-pokes';
 async function fetchData(url) {
   try {
     const response = await fetch(url);
-    if (response.status !== 200)
-      return Promise.reject(new Error('Invalid response'));
-    const data = await response.json();
-    return Promise.resolve(data);
+    //Get data from response if it's ok.
+    if (response.ok) {
+      const data = await response.json();
+      return Promise.resolve(data);
+    }
+    console.log('Failed response status: ', response.status);
   } catch (error) {
-    return Promise.reject(error);
+    console.log(error.message);
   }
 }
 
+//Boolean to check if img and select elements are already created on the DOM
 let isUIPopulated = false;
 
-function fetchAndPopulatePokemons() {
+//This is called with "get pokemons" button click
+async function fetchAndPopulatePokemons() {
+  //Get elements id if they're already created, else: create them.
   const [ui, selectElement] = isUIPopulated
     ? [
         document.getElementById(USER_INTERFACE_ID),
@@ -50,61 +55,54 @@ function fetchAndPopulatePokemons() {
       ]
     : [createUIElements(), createElement('select', SELECT_ELEMENT_ID)];
 
-  fetchData(API_URL)
-    .then((data) => {
-      for (let i = 0; i < data.results.length; ++i) {
-        const option = document.createElement('option');
-        option.textContent = data.results[i].name;
-        option.value = data.results[i].url;
-        selectElement.appendChild(option);
-      }
-    })
-    .catch((error) => {
-      return Promise.reject(error);
-    });
+  //Fetch data and create an option element for each pokemon then add it to select.
+  fetchData(API_URL).then((data) => {
+    for (const pokemon of data.results) {
+      const optionElm = createElement('option', '', pokemon.name, pokemon.url);
+      selectElement.appendChild(optionElm);
+    }
+  });
   ui.appendChild(selectElement);
+  //Append ui to body here to condition it on click
   document.body.appendChild(ui);
 
   selectElement.addEventListener('change', fetchImage);
 }
 
+//Called when select element is changed.
 function fetchImage() {
-  const img = document.getElementById(IMG_API_ID);
-  const optionValue = this.selectedOptions[0].value;
+  //Image element is already created in another method.
+  const img = document.getElementById(DOM_IMG_ID);
+  const optionElement = this.selectedOptions[0];
 
-  fetch(optionValue)
-    .then((response) => {
-      if (response.status !== 200)
-        return Promise.reject('No response for pokemon img');
-      return response.json();
-    })
-    .then((data) => {
-      img.src = data.sprites.front_default;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  //Every option element has an img URL as value.
+  fetchData(optionElement.value).then((data) => {
+    img.src = data.sprites.front_default;
+  });
 }
 
-function createElement(tag, id = '', content = '') {
+//Function that creates element with some general properties
+function createElement(tag, id = '', content = '', value = null) {
   const element = document.createElement(tag);
   element.textContent = content;
   element.id = id;
+  if (value) element.value = value;
   return element;
 }
 
+//Function to initialize our UI.
 function createUIElements() {
   const ui = document.getElementById(USER_INTERFACE_ID);
   const msg = createElement('h2', UI_MESSAGE_ID);
+  const img = createElement('img', DOM_IMG_ID);
 
-  ui.append(msg, createElement('img', IMG_API_ID));
+  ui.append(msg, img);
   isUIPopulated = true;
   return ui;
 }
 
 function main() {
-  const ui = document.createElement('div');
-  ui.id = USER_INTERFACE_ID;
+  const ui = createElement('div', USER_INTERFACE_ID);
   const btn = createElement('button', null, 'Get Pokemons');
   btn.type = 'button';
 
