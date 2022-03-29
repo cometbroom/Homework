@@ -148,3 +148,8 @@ ex4-diceRace.js:32:54 - Unknown word (fullfilled)
 2022-03-29 02:29:49 info: ----------------------------------------
 2022-03-29 02:29:49 warn: A unit test file was not provided.
 2022-03-29 02:29:53 info: All steps were completed successfully
+2022-03-29 03:53:59 info: --------------------------------------------
+2022-03-29 03:53:59 info: >>> Running Unit Test `ex6-browserDebug` <<<
+2022-03-29 03:53:59 info: --------------------------------------------
+2022-03-29 03:53:59 warn: A unit test file was not provided.
+2022-03-29 03:54:02 info: All steps were completed successfully
